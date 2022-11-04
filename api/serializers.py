@@ -12,7 +12,7 @@ class Todoserializer(serializers.ModelSerializer):
         fields=["task_name","user","status"]
     def create(self, validated_data):
         usr=self.context.get("user")
-        return Todos.objects.create(**validated_data,user,usr)
+        return Todos.objects.create(**validated_data,user=usr)
 
 class Registrationserializer(serializers.ModelSerializer):
     class Meta:
